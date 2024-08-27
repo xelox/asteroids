@@ -50,6 +50,11 @@ def main():
                 print("Game over!")
                 sys.exit()
 
+            for s in shots:
+                if a.collides(s):
+                    a.kill();
+                    s.kill();
+
         # render
         for u in drawable:
             u.draw(screen);
