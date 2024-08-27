@@ -1,8 +1,9 @@
 # this allows us to use code from
 # the open-source pygame library
 # throughout this file
-import pygame
-from constants import *
+import pygame;
+from constants import *;
+from player import Player;
 
 def main():
     print("Starting asteroids!")
@@ -14,16 +15,20 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     while True:
         # handle events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
 
-        # render
+        # render-logic
+        player.draw(screen);
+
+        # render-end
         pygame.display.flip()
         dt = clock.tick(60) / 1000
-        print(dt)
 
 if __name__ == "__main__":
     main()
